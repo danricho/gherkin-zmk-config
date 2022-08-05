@@ -11,21 +11,6 @@
 #define L_ONE 0
 #define L_SYS 1
 
-&lt { // momentary layer selection
-    flavor = "balanced";
-    tapping-term-ms = <225>;
-};
-
-&to  { // change to layer
-    flavor = "balanced";
-    tapping-term-ms = <225>;
-};
-
-&mt { // momentary modifier
-    flavor = "balanced";
-    tapping-term-ms = <225>;
-};
-
 / {
 
     keymap {
