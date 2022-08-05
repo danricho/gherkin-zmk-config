@@ -13,21 +13,47 @@
 
 / {
 
+    // REFERENCE FOR IDEAS https://logickeyboard.com/shop/adobe-graphic-designer-astra-2-backlit-pc-keyboard-4634p.html
+
+    macros {
+        zed_em_kay: zed_em_kay {
+            label = "ZM_zed_em_kay";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp Z &kp M &kp K>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+        dee_ay_en: dee_ay_en {
+            label = "ZM_dee_ay_en";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp D>
+                , <&macro_release &kp LSHFT>
+                , <&macro_tap &kp A &kp N>
+                ;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         // BLANK BINDINGS
         // bindings = <
-        //    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-        //    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
-        //    &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
+        //    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        //    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans 
+        //    &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans 
         // >;
 
         layer_one { // AKA 'L_ONE'
             
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // |       |       |       |       |       |       |       |       |   A   | L_ONE |
+            // |   A   |  ZMK  |       |       |       |       |       |       |       | L_ONE |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
@@ -40,9 +66,9 @@
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &kp A &to L_ONE
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &to L_SYS 
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
+                &kp A   &zed_em_kay  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &to L_ONE
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &to L_SYS 
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans 
             >;
         };
                 
@@ -50,22 +76,22 @@
 
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // | BT_0  | BT_1  | BT_2  | BT_3  |       |       |       |       |   B   | L_ONE |
+            // |   B   |  DAN  |       |       |       |       |       | BT_3  | BT_0  | L_ONE |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // | BT_CLR|       |       |       |       |       |       |       |       | L_SYS |
+            // |       |       |       |       |       |       |       | BT_4  | BT_1  | L_SYS |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // | RESET |       |       |       |       |       |       |       |       |       |
+            // |       |       |       |       |       |       | RESET | BT_CL | BT_2  |       |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
 
             bindings = <
-                &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &trans &trans &trans &kp B &to L_ONE
-                &bt BT_CLR &trans &trans &trans &trans &trans &trans &trans &trans &to L_SYS
-                &bootloader &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &kp B   &dee_ay_en  &trans  &trans  &trans  &trans  &trans       &bt BT_SEL 3  &bt BT_SEL 0  &to L_ONE
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans       &bt BT_SEL 4  &bt BT_SEL 1  &to L_SYS
+                &trans  &trans  &trans  &trans  &trans  &trans  &bootloader  &bt BT_CLR    &bt BT_SEL 2  &trans
             >;
         };
         
