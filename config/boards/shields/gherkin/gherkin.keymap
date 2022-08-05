@@ -11,7 +11,6 @@
 #define L_ONE 0
 #define L_SYS 1
 
-
 &lt { // momentary layer selection
     flavor = "balanced";
     tapping-term-ms = <225>;
@@ -28,16 +27,6 @@
 };
 
 / {
-    behaviors {
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "homerow mods";
-            #binding-cells = <2>;
-            tapping-term-ms = <225>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-    };
 
     keymap {
         compatible = "zmk,keymap";
