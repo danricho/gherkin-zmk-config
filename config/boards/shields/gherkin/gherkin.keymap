@@ -42,7 +42,7 @@
                 , <&macro_tap &kp MINUS &kp NUMBER_2>
                 ;
         };
-        p_layer_sys: p_layer_one {
+        p_layer_sys: p_layer_sys {
             label = "ZM_p_layer_sys";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -87,7 +87,7 @@
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             
             bindings = <
-                &kp LEFT  &trans  &kp A         &zed_em_kay   &trans  &trans  &trans  &trans  &trans  &to L_ONE
+                &kp LEFT  &trans  &kp A         &trans        &trans  &trans  &trans  &trans  &trans  &to L_ONE
                 &kp DOWN  &kp UP  &kp NUMBER_1  &p_layer_one  &trans  &trans  &trans  &trans  &trans  &to L_TWO 
                 &kp RIGHT &trans  &trans        &trans        &trans  &trans  &trans  &trans  &trans  &to L_SYS
             >;
@@ -110,7 +110,7 @@
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
 
             bindings = <
-                &kp LEFT   &trans  &kp B         &dee_ay_en    &trans  &trans  &trans  &trans  &trans  &to L_ONE
+                &kp LEFT   &trans  &kp B         &trans        &trans  &trans  &trans  &trans  &trans  &to L_ONE
                 &kp DOWN   &kp UP  &kp NUMBER_2  &p_layer_two  &trans  &trans  &trans  &trans  &trans  &to L_TWO
                 &kp RIGHT  &trans  &trans        &trans        &trans  &trans  &trans  &trans  &trans  &to L_SYS
             >;
