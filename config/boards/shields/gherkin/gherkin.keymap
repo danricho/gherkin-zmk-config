@@ -108,7 +108,7 @@
             // | RIGHT |       |       |       |       |       |       |       |       | L_SYS |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-L-_SYSL-_SYSL-L-L-L-L-L-L-_SYSZMKDanZMKZMKZMKZMKZMKL-_SYSZMKL-_SYSZMKZMKL-_SYSL-_SYS
+
             bindings = <
                 &kp LEFT   &trans  &kp B         &dee_ay_en    &trans  &trans  &trans  &trans  &trans  &to L_ONE
                 &kp DOWN   &kp UP  &kp NUMBER_2  &p_layer_two  &trans  &trans  &trans  &trans  &trans  &to L_TWO
