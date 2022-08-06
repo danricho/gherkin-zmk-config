@@ -9,7 +9,8 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define L_ONE 0
-#define L_SYS 1
+#define L_TWO 1
+#define L_SYS 2
 
 / {
 
@@ -17,6 +18,45 @@
     // REFERENCE FOR IDEAS: https://logickeyboard.com/shop/adobe-graphic-designer-astra-2-backlit-pc-keyboard-4634p.html
 
     macros {
+        p_layer_one: p_layer_one {
+            label = "ZM_p_layer_one";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp L>
+                , <&macro_release &kp LSHFT>
+                , <&macro_tap &kp MINUS &kp 1>
+                ;
+        };
+        p_layer_two: p_layer_two {
+            label = "ZM_p_layer_two";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp L>
+                , <&macro_release &kp LSHFT>
+                , <&macro_tap &kp MINUS &kp 1>
+                ;
+        };
+        p_layer_sys: p_layer_one {
+            label = "ZM_p_layer_sys";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_tap &kp L>
+                , <&macro_release &kp LSHFT>
+                , <&macro_tap &kp MINUS>
+                , <&macro_press &kp LSHFT>
+                , <&macro_tap &kp MINUS &kp S &kp Y &kp S>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
         zed_em_kay: zed_em_kay {
             label = "ZM_zed_em_kay";
             compatible = "zmk,behavior-macro";
@@ -57,45 +97,68 @@
             
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // |   A   |  ZMK  |       |       |       |       |       |       |       | L_ONE |
+            // | LEFT  |       |   A   |  ZMK  |       |       |       |       |       | L_ONE |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // |       |       |       |       |       |       |       |       |       | L_SYS |
+            // | DOWN  |  UP   |       |  P_L  |       |       |       |       |       | L_TWO |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // |       |       |       |       |       |       |       |       |       |       |
+            // | RIGHT |       |       |       |       |       |       |       |       | L_SYS |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             
             bindings = <
-                &kp A   &zed_em_kay  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &to L_ONE
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &to L_SYS 
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans 
+                &kp LEFT  &trans  &kp A   &zed_em_kay   &trans  &trans  &trans  &trans  &trans  &to L_ONE
+                &kp DOWN  &kp UP  &trans  &p_layer_one  &trans  &trans  &trans  &trans  &trans  &to L_TWO 
+                &kp RIGHT &trans  &trans  &trans        &trans  &trans  &trans  &trans  &trans  &to L_SYS
             >;
         };
-                
-        system_layer { // AKA 'L_SYS'
+
+        layer_two { // AKA 'L_TWO'
 
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // |   B   |  DAN  |       |       |       |       |       | BT_3  | BT_0  | L_ONE |
+            // | LEFT  |       |   B   |  DAN  |       |       |       |       |       | L_ONE |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // |       |       |       |       |       |       |       | BT_4  | BT_1  | L_SYS |
+            // | DOWN  |  UP   |       |  P_L  |       |       |       |       |       | L_TWO |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // |       |       |       |       |       |       | RESET | BT_CL | BT_2  |       |
+            // | RIGHT |       |       |       |       |       |       |       |       | L_SYS |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
 
             bindings = <
-                &kp B   &dee_ay_en  &trans  &trans  &trans  &trans  &trans       &bt BT_SEL 3  &bt BT_SEL 0  &to L_ONE
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans       &bt BT_SEL 4  &bt BT_SEL 1  &to L_SYS
-                &trans  &trans  &trans  &trans  &trans  &trans  &bootloader  &bt BT_CLR    &bt BT_SEL 2  &trans
+                &kp LEFT   &trans  &kp B   &dee_ay_en    &trans  &trans  &trans  &trans  &trans  &to L_ONE
+                &kp DOWN   &kp UP  &trans  &p_layer_two  &trans  &trans  &trans  &trans  &trans  &to L_TWO
+                &kp RIGHT  &trans  &trans  &trans        &trans  &trans  &trans  &trans  &trans  &to L_SYS
+            >;
+        };
+
+        system_layer { // AKA 'L_SYS'
+
+            // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+            // |       |       |       |       |       |       |       |       |       |       |
+            // |       |       |       |       |       |       | BT_3  | BT_0  |       | L_ONE |
+            // |       |       |       |       |       |       |       |       |       |       |
+            // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+            // |       |       |       |       |       |       |       |       |       |       |
+            // |       |       |       |  P_L  | RESET |       | BT_4  | BT_1  |       | L_TWO |
+            // |       |       |       |       |       |       |       |       |       |       |
+            // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+            // |       |       |       |       |       |       |       |       |       |       |
+            // |       |       |       |       |       |       | BT_CL | BT_2  |       | L_SYS |
+            // |       |       |       |       |       |       |       |       |       |       |
+            // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
+
+            bindings = <
+                &trans   &trans  &trans  &trans  &trans        &trans       &trans  &bt BT_SEL 3  &bt BT_SEL 0  &trans  &to L_ONE
+                &trans   &trans  &trans  &trans  &p_layer_sys  &bootloader  &trans  &bt BT_SEL 4  &bt BT_SEL 1  &trans  &to L_TWO
+                &trans   &trans  &trans  &trans  &trans        &trans       &trans  &bt BT_CLR    &bt BT_SEL 2  &trans  &to L_SYS
             >;
         };
         
