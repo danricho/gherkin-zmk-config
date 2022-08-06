@@ -27,7 +27,7 @@
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp L>
                 , <&macro_release &kp LSHFT>
-                , <&macro_tap &kp MINUS &kp 1>
+                , <&macro_tap &kp MINUS &kp NUMBER_1>
                 ;
         };
         p_layer_two: p_layer_two {
@@ -39,7 +39,7 @@
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp L>
                 , <&macro_release &kp LSHFT>
-                , <&macro_tap &kp MINUS &kp 1>
+                , <&macro_tap &kp MINUS &kp NUMBER_2>
                 ;
         };
         p_layer_sys: p_layer_one {
@@ -53,7 +53,7 @@
                 , <&macro_release &kp LSHFT>
                 , <&macro_tap &kp MINUS>
                 , <&macro_press &kp LSHFT>
-                , <&macro_tap &kp MINUS &kp S &kp Y &kp S>
+                , <&macro_tap &kp S &kp Y &kp S>
                 , <&macro_release &kp LSHFT>
                 ;
         };
@@ -97,11 +97,11 @@
             
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // | LEFT  |       |   A   |  ZMK  |       |       |       |       |       | L_ONE |
+            // | LEFT  |       |   A   |       |       |       |       |       |       | L_ONE |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // | DOWN  |  UP   |       |  P_L  |       |       |       |       |       | L_TWO |
+            // | DOWN  |  UP   |   1   |  P_L  |       |       |       |       |       | L_TWO |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
@@ -110,9 +110,9 @@
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             
             bindings = <
-                &kp LEFT  &trans  &kp A   &zed_em_kay   &trans  &trans  &trans  &trans  &trans  &to L_ONE
-                &kp DOWN  &kp UP  &trans  &p_layer_one  &trans  &trans  &trans  &trans  &trans  &to L_TWO 
-                &kp RIGHT &trans  &trans  &trans        &trans  &trans  &trans  &trans  &trans  &to L_SYS
+                &kp LEFT  &trans  &kp A         &zed_em_kay   &trans  &trans  &trans  &trans  &trans  &to L_ONE
+                &kp DOWN  &kp UP  &kp NUMBER_1  &p_layer_one  &trans  &trans  &trans  &trans  &trans  &to L_TWO 
+                &kp RIGHT &trans  &trans        &trans        &trans  &trans  &trans  &trans  &trans  &to L_SYS
             >;
         };
 
@@ -120,22 +120,22 @@
 
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // | LEFT  |       |   B   |  DAN  |       |       |       |       |       | L_ONE |
+            // | LEFT  |       |   B   |       |       |       |       |       |       | L_ONE |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // | DOWN  |  UP   |       |  P_L  |       |       |       |       |       | L_TWO |
+            // | DOWN  |  UP   |   2   |  P_L  |       |       |       |       |       | L_TWO |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
             // | RIGHT |       |       |       |       |       |       |       |       | L_SYS |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-
+L-_SYSL-_SYSL-L-L-L-L-L-L-_SYSZMKDanZMKZMKZMKZMKZMKL-_SYSZMKL-_SYSZMKZMKL-_SYSL-_SYS
             bindings = <
-                &kp LEFT   &trans  &kp B   &dee_ay_en    &trans  &trans  &trans  &trans  &trans  &to L_ONE
-                &kp DOWN   &kp UP  &trans  &p_layer_two  &trans  &trans  &trans  &trans  &trans  &to L_TWO
-                &kp RIGHT  &trans  &trans  &trans        &trans  &trans  &trans  &trans  &trans  &to L_SYS
+                &kp LEFT   &trans  &kp B         &dee_ay_en    &trans  &trans  &trans  &trans  &trans  &to L_ONE
+                &kp DOWN   &kp UP  &kp NUMBER_2  &p_layer_two  &trans  &trans  &trans  &trans  &trans  &to L_TWO
+                &kp RIGHT  &trans  &trans        &trans        &trans  &trans  &trans  &trans  &trans  &to L_SYS
             >;
         };
 
@@ -143,11 +143,11 @@
 
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // |       |       |       |       |       |       | BT_3  | BT_0  |       | L_ONE |
+            // |       |       |   C   |       |       |       | BT_3  | BT_0  |       | L_ONE |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // |       |       |       |  P_L  | RESET |       | BT_4  | BT_1  |       | L_TWO |
+            // |       |       |   3   |  P_L  | RESET |       | BT_4  | BT_1  |       | L_TWO |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
@@ -156,9 +156,9 @@
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
 
             bindings = <
-                &trans   &trans  &trans  &trans  &trans        &trans       &trans  &bt BT_SEL 3  &bt BT_SEL 0  &trans  &to L_ONE
-                &trans   &trans  &trans  &trans  &p_layer_sys  &bootloader  &trans  &bt BT_SEL 4  &bt BT_SEL 1  &trans  &to L_TWO
-                &trans   &trans  &trans  &trans  &trans        &trans       &trans  &bt BT_CLR    &bt BT_SEL 2  &trans  &to L_SYS
+                &trans   &trans  &kp C         &trans        &trans       &trans  &bt BT_SEL 3  &bt BT_SEL 0  &trans  &to L_ONE
+                &trans   &trans  &kp NUMBER_3  &p_layer_sys  &bootloader  &trans  &bt BT_SEL 4  &bt BT_SEL 1  &trans  &to L_TWO
+                &trans   &trans  &trans        &trans        &trans       &trans  &bt BT_CLR    &bt BT_SEL 2  &trans  &to L_SYS
             >;
         };
         
