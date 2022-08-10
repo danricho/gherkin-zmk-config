@@ -24,6 +24,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
+            tap-ms = <20>;
             bindings
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp L>
@@ -36,6 +37,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
+            tap-ms = <20>;
             bindings
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp L>
@@ -48,6 +50,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
+            tap-ms = <20>;
             bindings
                 = <&macro_press &kp LSHFT>
                 , <&macro_tap &kp L>
@@ -56,6 +59,20 @@
                 , <&macro_press &kp LSHFT>
                 , <&macro_tap &kp S &kp Y &kp S>
                 , <&macro_release &kp LSHFT>
+                ;
+        };
+        get_new_build: get_new_build {
+            label = "ZM_get_new_build";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <20>;
+            bindings
+                = <&macro_tap &kp LEFT_GUI &kp C &kp H &kp R &kp O &kp M &kp E &kp ENTER>
+                ,<&macro_tap &kp g &kp i &kp t &kp h &kp u &kp b &kp KP_DOT &kp c &kp o &kp m &kp KP_SLASH>
+                ,<&macro_tap &kp d &kp a &kp n &kp r &kp i &kp c &kp h &kp o &kp KP_SLASH>
+                ,<&macro_tap &kp g &kp h &kp e &kp r &kp k &kp i &kp a &kp KP_MINUS &kp z &kp m &kp k &kp KP_MINUS &kp c &kp o &kp n &kp f &kp i &kp g &kp KP_SLASH>
+                ,<&macro_tap &kp a &kp c &kp t &kp i &kp o &kp n &kp s &kp ENTER>
                 ;
         };
 
@@ -75,7 +92,7 @@
             
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // | LEFT  |       |   A   |       |       |       |       |       |       | L_ONE |
+            // | LEFT  |       |   A   |       |       |       |       | GH_AC |       | L_ONE |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
@@ -88,9 +105,9 @@
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             
             bindings = <
-                &kp LEFT  &trans  &kp A         &trans  &trans  &trans  &trans  &trans  &trans  &to L_ONE
-                &kp DOWN  &kp UP  &kp NUMBER_1  &trans  &trans  &trans  &trans  &trans  &trans  &to L_TWO 
-                &kp RIGHT &trans  &p_layer_one  &trans  &trans  &trans  &trans  &trans  &trans  &to L_SYS
+                &kp LEFT  &trans  &kp A         &trans  &trans  &trans  &trans  &get_new_build  &trans  &to L_ONE
+                &kp DOWN  &kp UP  &kp NUMBER_1  &trans  &trans  &trans  &trans  &trans          &trans  &to L_TWO 
+                &kp RIGHT &trans  &p_layer_one  &trans  &trans  &trans  &trans  &trans          &trans  &to L_SYS
             >;
         };
 
