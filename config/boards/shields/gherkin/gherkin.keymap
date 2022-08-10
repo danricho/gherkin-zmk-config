@@ -74,6 +74,10 @@
                 , <&macro_tap &kp C &kp H &kp R &kp O &kp M>
                 , <&macro_wait_time 1000>
                 , <&macro_tap &kp E &kp ENTER>
+                , <&macro_wait_time 100>
+                , <&macro_press &kp LCTRL>
+                , <&macro_tap &kp L>
+                , <&macro_release &kp LCTRL>
                 , <&macro_wait_time 10>
                 , <&macro_tap &kp G &kp I &kp T &kp H &kp U &kp B &kp KP_DOT &kp C &kp O &kp M &kp KP_SLASH>
                 , <&macro_tap &kp D &kp A &kp N &kp R &kp I &kp C &kp H &kp O &kp KP_SLASH>
