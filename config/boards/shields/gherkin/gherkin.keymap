@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
 #define L_ONE 0
 #define L_TWO 1
@@ -78,18 +79,18 @@
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // | DOWN  |  UP   |   1   |  P_L  |       |       |       |       |       | L_TWO |
+            // | DOWN  |  UP   |   1   |       |       |       |       |       |       | L_TWO |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // | RIGHT |       |       |       |       |       |       |       |       | L_SYS |
+            // | RIGHT |       |  P_L  |       |       |       |       |       |       | L_SYS |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             
             bindings = <
-                &kp LEFT  &trans  &kp A         &trans        &trans  &trans  &trans  &trans  &trans  &to L_ONE
-                &kp DOWN  &kp UP  &kp NUMBER_1  &p_layer_one  &trans  &trans  &trans  &trans  &trans  &to L_TWO 
-                &kp RIGHT &trans  &trans        &trans        &trans  &trans  &trans  &trans  &trans  &to L_SYS
+                &kp LEFT  &trans  &kp A         &trans  &trans  &trans  &trans  &trans  &trans  &to L_ONE
+                &kp DOWN  &kp UP  &kp NUMBER_1  &trans  &trans  &trans  &trans  &trans  &trans  &to L_TWO 
+                &kp RIGHT &trans  &p_layer_one  &trans  &trans  &trans  &trans  &trans  &trans  &to L_SYS
             >;
         };
 
@@ -101,18 +102,18 @@
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // | DOWN  |  UP   |   2   |  P_L  |       |       |       |       |       | L_TWO |
+            // | DOWN  |  UP   |   2   |       |       |       |       |       |       | L_TWO |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // | RIGHT |       |       |       |       |       |       |       |       | L_SYS |
+            // | RIGHT |       |  P_L  |       |       |       |       |       |       | L_SYS |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
 
             bindings = <
-                &kp LEFT   &trans  &kp B         &trans        &trans  &trans  &trans  &trans  &trans  &to L_ONE
-                &kp DOWN   &kp UP  &kp NUMBER_2  &p_layer_two  &trans  &trans  &trans  &trans  &trans  &to L_TWO
-                &kp RIGHT  &trans  &trans        &trans        &trans  &trans  &trans  &trans  &trans  &to L_SYS
+                &kp LEFT   &trans  &kp B         &trans  &trans  &trans  &trans  &trans  &trans  &to L_ONE
+                &kp DOWN   &kp UP  &kp NUMBER_2  &trans  &trans  &trans  &trans  &trans  &trans  &to L_TWO
+                &kp RIGHT  &trans  &p_layer_two  &trans  &trans  &trans  &trans  &trans  &trans  &to L_SYS
             >;
         };
 
@@ -120,22 +121,22 @@
 
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // |       |       |   C   |       |       |       | BT_3  | BT_0  |       | L_ONE |
+            // | LEFT  |       |   C   |       | M_BLE |       | BT_3  | BT_0  |       | L_ONE |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // |       |       |   3   |  P_L  | RESET |       | BT_4  | BT_1  |       | L_TWO |
+            // | DOWN  |  UP   |   3   |       | M_USB |       | BT_4  | BT_1  |       | L_TWO |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
             // |       |       |       |       |       |       |       |       |       |       |
-            // |       |       |       |       |       |       | BT_CL | BT_2  |       | L_SYS |
+            // | RIGHT |       |  P_L  |       | RESET |       | BT_CL | BT_2  |       | L_SYS |
             // |       |       |       |       |       |       |       |       |       |       |
             // +-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
 
             bindings = <
-                &trans   &trans  &kp C         &trans        &trans       &trans  &bt BT_SEL 3  &bt BT_SEL 0  &trans  &to L_ONE
-                &trans   &trans  &kp NUMBER_3  &p_layer_sys  &bootloader  &trans  &bt BT_SEL 4  &bt BT_SEL 1  &trans  &to L_TWO
-                &trans   &trans  &trans        &trans        &trans       &trans  &bt BT_CLR    &bt BT_SEL 2  &trans  &to L_SYS
+                &kp LEFT   &trans  &kp C         &trans &out OUT_BLE  &trans  &bt BT_SEL 3  &bt BT_SEL 0  &trans  &to L_ONE
+                &kp DOWN   &kp UP  &kp NUMBER_3  &trans &out OUT_USB  &trans  &bt BT_SEL 4  &bt BT_SEL 1  &trans  &to L_TWO
+                &kp RIGHT  &trans  &p_layer_sys  &trans &bootloader   &trans  &bt BT_CLR    &bt BT_SEL 2  &trans  &to L_SYS
             >;
         };
         
