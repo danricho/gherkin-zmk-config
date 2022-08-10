@@ -69,10 +69,10 @@
             tap-ms = <20>;
             bindings
                 = <&macro_tap &kp LEFT_GUI &kp C &kp H &kp R &kp O &kp M &kp E &kp ENTER>
-                ,<&macro_tap &kp g &kp i &kp t &kp h &kp u &kp b &kp KP_DOT &kp c &kp o &kp m &kp KP_SLASH>
-                ,<&macro_tap &kp d &kp a &kp n &kp r &kp i &kp c &kp h &kp o &kp KP_SLASH>
-                ,<&macro_tap &kp g &kp h &kp e &kp r &kp k &kp i &kp a &kp KP_MINUS &kp z &kp m &kp k &kp KP_MINUS &kp c &kp o &kp n &kp f &kp i &kp g &kp KP_SLASH>
-                ,<&macro_tap &kp a &kp c &kp t &kp i &kp o &kp n &kp s &kp ENTER>
+                ,<&macro_tap &kp G &kp I &kp T &kp H &kp U &kp B &kp KP_DOT &kp C &kp O &kp M &kp KP_SLASH>
+                ,<&macro_tap &kp D &kp A &kp N &kp R &kp I &kp C &kp H &kp O &kp KP_SLASH>
+                ,<&macro_tap &kp G &kp H &kp E &kp R &kp K &kp I &kp N &kp KP_MINUS &kp Z &kp M &kp K &kp KP_MINUS &kp C &kp O &kp N &kp F &kp I &kp G &kp KP_SLASH>
+                ,<&macro_tap &kp A &kp C &kp T &kp I &kp O &kp N &kp S &kp ENTER>
                 ;
         };
 
